@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ТАКТ — выдуманный автосервис для тех, кто любит, когда машина в порядке." />
+    <meta name="theme-color" content="#111516" />
     <title>ТАКТ — автосервис без лишних слов</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -16,8 +17,14 @@
       <nav class="nav" aria-label="Основная навигация">
         <a href="#services">Услуги</a>
         <a href="#prices">Цены</a>
+        <a href="#reviews">Отзывы</a>
         <a href="#contacts">Контакты</a>
       </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Переключить на светлую тему" aria-pressed="false">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">◐</span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+        <span class="theme-toggle-label">Светлая тема</span>
+      </button>
       <a class="header-phone" href="tel:+79990001122">+7 999 000-11-22</a>
     </header>
 
@@ -103,6 +110,45 @@
         </div>
       </section>
 
+      <section class="reviews-section section-shell" id="reviews" aria-labelledby="reviews-title">
+        <div class="reviews-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> НАС РЕКОМЕНДУЮТ</p>
+            <h2 id="reviews-title">Отзывы, которым<br /><em>можно верить.</em></h2>
+          </div>
+          <div class="reviews-controls">
+            <button class="slider-arrow" type="button" data-reviews-prev aria-label="Предыдущий отзыв">←</button>
+            <button class="slider-arrow" type="button" data-reviews-next aria-label="Следующий отзыв">→</button>
+          </div>
+        </div>
+        <div class="reviews-track" data-reviews-track tabindex="0" aria-label="Отзывы клиентов">
+          <article class="review-card">
+            <img src="assets/review-blue-sedan.png" alt="Тёмно-синий седан в боксе автосервиса" />
+            <div class="review-content">
+              <div class="review-meta"><span>★★★★★</span><span>Илья · седан</span></div>
+              <blockquote>«Приехал на диагностику, а уехал с понятным планом ремонта. Ничего лишнего не навязывали — редкость».</blockquote>
+              <span class="review-service">Компьютерная диагностика</span>
+            </div>
+          </article>
+          <article class="review-card">
+            <img src="assets/review-graphite-crossover.png" alt="Графитовый кроссовер у автосервиса вечером" />
+            <div class="review-content">
+              <div class="review-meta"><span>★★★★★</span><span>Марина · кроссовер</span></div>
+              <blockquote>«Оставила машину утром, вечером уже забрала. Всё объяснили по телефону и прислали фото до и после».</blockquote>
+              <span class="review-service">Техническое обслуживание</span>
+            </div>
+          </article>
+          <article class="review-card">
+            <img src="assets/review-silver-wagon.png" alt="Серебристый универсал на проверке в сервисном боксе" />
+            <div class="review-content">
+              <div class="review-meta"><span>★★★★★</span><span>Алексей · универсал</span></div>
+              <blockquote>«Теперь знаю, куда ехать с машиной. Сделали аккуратно, по срокам уложились, цена совпала с расчётом».</blockquote>
+              <span class="review-service">Проверка подвески</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="contact-section section-shell" id="contacts">
         <div>
           <p class="eyebrow"><span class="eyebrow-line"></span> ПРИЕЗЖАЙТЕ</p>
@@ -121,5 +167,6 @@
       <span>© 2024 ТАКТ. Придуманный автосервис.</span>
       <span>Сделано с уважением к хорошим машинам.</span>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
