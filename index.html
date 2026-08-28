@@ -35,22 +35,15 @@
           <h1>Машина должна<br /><em>ехать.</em> Остальное — наша забота.</h1>
           <p class="hero-lead">Ремонтируем честно, объясняем понятно, возвращаем автомобиль вовремя.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="tel:+79990001122">Записаться на сервис <span>↗</span></a>
+            <a class="button button-primary" href="#booking">Записаться на сервис <span>↗</span></a>
             <a class="text-link" href="#prices">Посмотреть цены <span>↓</span></a>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Иллюстрация автомобиля">
+        <div class="hero-visual" aria-label="Автомобиль в боксе автосервиса">
           <div class="visual-label label-top">SINCE 2014</div>
           <div class="visual-number">04<span>/</span>24</div>
-          <div class="car-shape" aria-hidden="true">
-            <div class="car-roof"></div>
-            <div class="car-body"></div>
-            <div class="car-window window-left"></div>
-            <div class="car-window window-right"></div>
-            <div class="wheel wheel-left"></div>
-            <div class="wheel wheel-right"></div>
-            <div class="headlight"></div>
-          </div>
+          <img class="hero-visual-photo" src="hero-service-detail.png" alt="Глянцевый автомобиль в тёмном сервисном боксе" />
+          <div class="hero-photo-overlay" aria-hidden="true"></div>
           <div class="visual-label label-bottom">WORK / CARE / DRIVE</div>
         </div>
       </section>
@@ -106,6 +99,7 @@
             <div class="price-row"><span>Замена тормозных колодок</span><strong>от 3 500 ₽</strong></div>
             <div class="price-row"><span>Заправка кондиционера</span><strong>от 2 400 ₽</strong></div>
             <div class="price-row"><span>Подвеска: осмотр и заключение</span><strong>от 1 500 ₽</strong></div>
+            <a class="button button-primary price-cta" href="#booking">Записаться на сервис <span>↗</span></a>
           </div>
         </div>
       </section>
@@ -149,6 +143,28 @@
         </div>
       </section>
 
+      <section class="booking-section section-shell" id="booking" aria-labelledby="booking-title">
+        <div class="booking-intro">
+          <p class="eyebrow"><span class="eyebrow-line"></span> БЫСТРАЯ ЗАПИСЬ</p>
+          <h2 id="booking-title">Расскажите,<br /><em>что случилось.</em></h2>
+          <p>Оставьте контакты — мастер свяжется с вами, уточнит детали и предложит удобное время.</p>
+        </div>
+        <form class="booking-form" data-booking-form>
+          <div class="form-grid">
+            <label>Имя<input name="name" type="text" autocomplete="name" placeholder="Ваше имя" required /></label>
+            <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 999 000-11-22" required /></label>
+            <label>Автомобиль<input name="car" type="text" placeholder="Марка и модель" required /></label>
+            <label>Услуга<select name="service"><option>Диагностика</option><option>Техническое обслуживание</option><option>Ремонт</option><option>Другое</option></select></label>
+          </div>
+          <label class="form-full">Комментарий<textarea name="message" rows="4" placeholder="Коротко опишите задачу"></textarea></label>
+          <div class="form-submit-row">
+            <button class="button button-primary" type="submit">Отправить заявку <span>↗</span></button>
+            <p class="form-note">Демо-форма: после отправки появится подтверждение.</p>
+          </div>
+          <p class="form-success" data-form-success role="status" hidden>Спасибо! Заявка принята — мы скоро свяжемся с вами.</p>
+        </form>
+      </section>
+
       <section class="contact-section section-shell" id="contacts">
         <div>
           <p class="eyebrow"><span class="eyebrow-line"></span> ПРИЕЗЖАЙТЕ</p>
@@ -158,7 +174,7 @@
           <p>Пн–Сб · 09:00–20:00</p>
           <a class="contact-phone" href="tel:+79990001122">+7 999 000-11-22</a>
           <p>г. Светлый, ул. Моторная, 7</p>
-          <a class="button button-primary" href="mailto:hello@takt-auto.ru">Написать нам <span>↗</span></a>
+          <a class="button button-primary" href="#booking">Написать нам <span>↗</span></a>
         </div>
       </section>
     </main>

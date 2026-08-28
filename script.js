@@ -22,15 +22,47 @@
 
   const track = document.querySelector('[data-reviews-track]');
   const cards = track ? [...track.querySelectorAll('.review-card')] : [];
-  const scrollReviews = (direction) => {
-    const distance = cards[0]?.getBoundingClientRect().width || 320;
-    track?.scrollBy({ left: direction * (distance + 18), behavior: 'smooth' });
+  let reviewIndex = 0;
+  let pointerStartX = null;
+
+  const renderReviews = () => {
+    cards.forEach((card, index) => {
+      const offset = (index - reviewIndex + cards.length) % cards.length;
+      card.dataset.position = String(offset);
+      card.setAttribute('aria-hidden', String(offset !== 0));
+    });
   };
 
-  document.querySelector('[data-reviews-prev]')?.addEventListener('click', () => scrollReviews(-1));
-  document.querySelector('[data-reviews-next]')?.addEventListener('click', () => scrollReviews(1));
+  const moveReviews = (direction) => {
+    if (!cards.length) return;
+    reviewIndex = (reviewIndex + direction + cards.length) % cards.length;
+    renderReviews();
+  };
+
+  renderReviews();
+  document.querySelector('[data-reviews-prev]')?.addEventListener('click', () => moveReviews(-1));
+  document.querySelector('[data-reviews-next]')?.addEventListener('click', () => moveReviews(1));
   track?.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') scrollReviews(-1);
-    if (event.key === 'ArrowRight') scrollReviews(1);
+    if (event.key === 'ArrowLeft') moveReviews(-1);
+    if (event.key === 'ArrowRight') moveReviews(1);
+  });
+  track?.addEventListener('pointerdown', (event) => {
+    pointerStartX = event.clientX;
+    track.setPointerCapture?.(event.pointerId);
+  });
+  track?.addEventListener('pointerup', (event) => {
+    if (pointerStartX === null) return;
+    const distance = event.clientX - pointerStartX;
+    if (Math.abs(distance) > 45) moveReviews(distance < 0 ? 1 : -1);
+    pointerStartX = null;
+  });
+  track?.addEventListener('pointercancel', () => { pointerStartX = null; });
+
+  const bookingForm = document.querySelector('[data-booking-form]');
+  const formSuccess = document.querySelector('[data-form-success]');
+  bookingForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    bookingForm.reset();
+    if (formSuccess) formSuccess.hidden = false;
   });
 })();
